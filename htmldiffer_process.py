@@ -11,25 +11,13 @@ html_end = '</body></html>'
 
 # mode 0: side by side 1:line by line
 def htmldiffer_process(mode, str1, str2):
-    result = diff.HTMLDiffer(html1, html2)
+    result = diff.HTMLDiffer(str1, str2)
     if mode == 0:
-        with open('html_combin.html', 'w') as tmp:  # create differ html file
-            tmp.writelines(html_head)
-            tmp.writelines(result.combined_diff)
-            tmp.writelines(html_end)
         return result.combined_diff
     elif mode == 1:
-        with open('html_delete.html', 'w') as tmp:
-            tmp.writelines(html_head)
-            tmp.writelines(result.deleted_diff)
-            tmp.writelines(html_end)
-        with open('html_insert.html', 'w') as tmp:
-            tmp.writelines(html_head)
-            tmp.writelines(result.inserted_diff)
-            tmp.writelines(html_end)
         return [result.deleted_diff, result.inserted_diff]
     else:
-        return 'input error'
+        return 'input error!'
 
 # print the information of differ
 result = diff.HTMLDiffer(html1, html2)

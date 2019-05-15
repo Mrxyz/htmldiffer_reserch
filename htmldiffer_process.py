@@ -2,8 +2,12 @@
 
 from htmldiffer import diff
 
+
 def htmldiffer_process(mode, str1, str2):
-    # mode 0: side by side 1:line by line
+    """
+    mode 0: 返回一个包含删除和插入标签的字符串  1:返回1个包含删除标签的字符串和1个包含插入标签的字符串
+    str1: 待处理html字符串1 str2: 待处理html字符串2
+    """
     result = diff.HTMLDiffer(str1, str2)
     if mode == 0:
         return result.combined_diff
@@ -11,12 +15,6 @@ def htmldiffer_process(mode, str1, str2):
         return [result.deleted_diff, result.inserted_diff]
     else:
         return 'input error!'
-
-# print the information of differ
-# result = diff.HTMLDiffer(html1, html2)
-#print('line by line: {}\nside by side:\n  delte: {}\n  inser: {}'.format(result.combined_diff, result.deleted_diff, result.inserted_diff))
-
-
 
 ########################## here is test code ##################################
 html_end = '</body></html>'
@@ -34,15 +32,7 @@ if __name__ == '__main__':
         tmp.writelines(result)
         tmp.writelines(html_end)
 
-    # print(htmldiffer_process(0, html1, html2))
+    print(htmldiffer_process(0, html1, html2))
 
 ########################## end test code ##########################
-
-
-
-
-
-
-
-
 

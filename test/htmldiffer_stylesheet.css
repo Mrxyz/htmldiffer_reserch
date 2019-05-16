@@ -6,6 +6,13 @@ span.htmldiffer_delete {
     background-color: #FF5D2D;
 }
 
+span.htmldiffer_replace_old {
+    background-color: #DAA520;
+}
+span.htmldiffer_replace_new {
+    background-color: #FFD700;
+}
+
 span.htmldiffer_insert > input,
 span.htmldiffer_insert > img {
     outline: #a0ffa0 solid thick;

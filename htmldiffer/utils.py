@@ -61,6 +61,7 @@ def html2list(html_string):
             else:
                 # cur += c
                 out.append(c)
+                cur = ''
 
     # TODO: move this to its own function `merge_blacklisted` or `merge_tags` return to a generator instead of list
     cleaned = list()
